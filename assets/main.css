@@ -1589,8 +1589,8 @@ body {
 	-ms-flex-pack: center;
 	justify-content: center;
 	margin-top: 2.1875rem;
-	-ms-grid-columns: (19.5625rem) [3];
-	grid-template-columns: repeat(3, 19.5625rem);
+	-ms-grid-columns: (13.5625rem) [3];
+	grid-template-columns: repeat(3, 13.5625rem);
 }
 
 .box {
@@ -2194,7 +2194,7 @@ body {
 	}
 
 	.box__inner {
-		width: 19.5625rem;
+		width: 13.5625rem;
 	}
 }
 
@@ -2466,13 +2466,13 @@ body {
 		}
 	}
 
-	@supports (width: clamp(10.4375rem, 7.210980663rem + 16.1325966851vw, 19.5625rem)) {
+	@supports (width: clamp(10.4375rem, 7.210980663rem + 16.1325966851vw, s)) {
 		.box__inner {
-			width: clamp(10.4375rem, 7.210980663rem + 16.1325966851vw, 19.5625rem);
+			width: clamp(10.4375rem, 7.210980663rem + 16.1325966851vw, 13.5625rem);
 		}
 	}
 
-	@supports not (width: clamp(10.4375rem, 7.210980663rem + 16.1325966851vw, 19.5625rem)) {
+	@supports not (width: clamp(10.4375rem, 7.210980663rem + 16.1325966851vw, 13.5625rem)) {
 		.box__inner {
 			width: calc(10.4375rem + 9.125 * (100vw - 20rem) / 56.5625);
 		}
