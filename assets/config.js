@@ -264,7 +264,7 @@ const orderOriginParam = window.__origin_param;
       },
       delivery: {
         title: "Delivery",
-        amount: "R0.00",
+        amount: "£0.00",
       },
       total: {
         title: "Total",
@@ -277,8 +277,8 @@ const orderOriginParam = window.__origin_param;
   const products = [
     {
       id: "26468782",
-      name: "Congratulations! You can join the Amazon Mystery Box promotion!",
-      miniImg: "./assets/slide_1.jpg",
+      name: "Amazon Mystery Box",
+      miniImg: "./assets/preland_amazon1.png",
 
       images: [
         "./assets/slide_4.png",

@@ -22,7 +22,7 @@ const modalWin = () => {
     const modalImg = document.createElement("img");
     modalImg.className = "modal__img modal__img-animate";
     // modalImg.src = lsGetProductImages()[0];
-    modalImg.src = "../assets/preland_amazon1.jpg";
+    modalImg.src = "./assets/preland_amazon1.png";
     modalImg.width = "150";
     modalContent.appendChild(modalImg);
   };
@@ -139,7 +139,7 @@ const fadeIn = (el, display) => {
 const game = () => {
   window.screen.width;
   let countAttempt = 2;
-  let counterBoxes = 6;
+  let counterBoxes = 9;
   let countClick = null;
   const boxesWrapper = document.createElement("div");
   boxesWrapper.classList.add("boxes");
@@ -158,6 +158,7 @@ const game = () => {
   fadeIn(boxesWrapper, "grid");
   for (let i = 1; i <= counterBoxes; i++) createBoxItem(i);
   const openBox = (e) => {
+    e.preventDefault();
     const activeDiv = e.target.parentElement;
     boxesWrapper.style.pointerEvents = "none";
     countClick++;

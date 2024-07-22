@@ -55,7 +55,7 @@ const checkoutInit = () => {
   const pr = lsGetSelectedProduct();
 
   // checkoutCurrentPhoto.src = pr.images?.[0];
-  checkoutCurrentPhoto.src = "../assets/preland_amazon1.jpg";
+  checkoutCurrentPhoto.src = pr.miniImg;
   checkoutOfferName.innerText = `${cfg.mainProduct.name} ${pr.name}`;
   if (cfg.sizes.enabled) {
     checkoutOfferSize.innerText = `${cart.main.size}: ${lsGetSelectedSize()}`;

@@ -2185,12 +2185,12 @@ body {
 
 @media (min-width: 76.5625em) {
 	.box {
-		height: 19.375rem;
+		height: 13.375rem;
 	}
 
 	.box__inner,
 	.box__front {
-		height: 19.375rem;
+		height: 13.375rem;
 	}
 
 	.box__inner {
@@ -2223,8 +2223,7 @@ body {
 	.hero__text4 {
 		margin-bottom: 2.5rem !important;
 	}
-
-	.slider {
+	s .slider {
 		max-width: 28rem;
 		margin: 0 auto;
 	}
@@ -2234,8 +2233,8 @@ body {
 	}
 
 	.boxes {
-		-ms-grid-columns: (minmax(10.8125rem, 19.375rem)) [2];
-		grid-template-columns: repeat(2, minmax(10.8125rem, 19.375rem));
+		-ms-grid-columns: (minmax(10.8125rem, 13.375rem)) [2];
+		grid-template-columns: repeat(2, minmax(10.8125rem, 13.375rem));
 	}
 }
 
@@ -2441,26 +2440,26 @@ body {
 }
 
 @media (min-width: 20em) and (max-width: 76.5625em) {
-	@supports (height: clamp(10.8125rem, 7.7848756906rem + 15.138121547vw, 19.375rem)) {
+	@supports (height: clamp(10.8125rem, 7.7848756906rem + 15.138121547vw, 13.375rem)) {
 		.box {
-			height: clamp(10.8125rem, 7.7848756906rem + 15.138121547vw, 19.375rem);
+			height: clamp(10.8125rem, 7.7848756906rem + 15.138121547vw, 13.375rem);
 		}
 	}
 
-	@supports not (height: clamp(10.8125rem, 7.7848756906rem + 15.138121547vw, 19.375rem)) {
+	@supports not (height: clamp(10.8125rem, 7.7848756906rem + 15.138121547vw, 13.375rem)) {
 		.box {
 			height: calc(10.8125rem + 8.5625 * (100vw - 20rem) / 56.5625);
 		}
 	}
 
-	@supports (height: clamp(10.8125rem, 7.7848756906rem + 15.138121547vw, 19.375rem)) {
+	@supports (height: clamp(10.8125rem, 7.7848756906rem + 15.138121547vw, 13.375rem)) {
 		.box__inner,
 		.box__front {
-			height: clamp(10.8125rem, 7.7848756906rem + 15.138121547vw, 19.375rem);
+			height: clamp(10.8125rem, 7.7848756906rem + 15.138121547vw, 13.375rem);
 		}
 	}
 
-	@supports not (height: clamp(10.8125rem, 7.7848756906rem + 15.138121547vw, 19.375rem)) {
+	@supports not (height: clamp(10.8125rem, 7.7848756906rem + 15.138121547vw, 13.375rem)) {
 		.box__inner,
 		.box__front {
 			height: calc(10.8125rem + 8.5625 * (100vw - 20rem) / 56.5625);
