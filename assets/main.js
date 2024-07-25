@@ -530,6 +530,7 @@ setTimeout(() => {
   const cookieName = 'firstVisitDone';
 
   if (!getCookie(cookieName)) {
+    localStorage.clear();
     // Perform any first-visit actions
     setCookie(cookieName, 'true', 365, '/'); // Ensure path is specified to restrict the cookie
   }
