@@ -22,7 +22,8 @@ const modalWin = () => {
     const modalImg = document.createElement("img");
     modalImg.className = "modal__img modal__img-animate";
     // modalImg.src = lsGetProductImages()[0];
-    modalImg.src = "./assets/preland_amazon1.png";
+    // modalImg.src = "./assets/preland_amazon1.png";
+    modalImg.src = products[0].miniImg;
     modalImg.width = "150";
     modalContent.appendChild(modalImg);
   };
