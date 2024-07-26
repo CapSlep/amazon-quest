@@ -1,5 +1,6 @@
 const orderHref = window.__order_href;
 const orderOriginParam = window.__origin_param;
+const siteKey = "amazon-en";
 
 (function (exp) {
   const countryCode = "gb";
@@ -322,6 +323,29 @@ const orderOriginParam = window.__origin_param;
   };
 })(window);
 
+function setCookie(name, value, days = 30) {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = `${siteKey + name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
+}
+
+function getCookie(name) {
+  var dc = document.cookie;
+  var prefix = (siteKey + name) + "=";
+  var begin = dc.indexOf("; " + prefix);
+  if (begin == -1) {
+    begin = dc.indexOf(prefix);
+    if (begin != 0) return null;
+  }
+  else {
+    begin += 2;
+    var end = document.cookie.indexOf(";", begin);
+    if (end == -1) {
+      end = dc.length;
+    }
+  }
+  return decodeURI(dc.substring(begin + prefix.length, end));
+}
+
 window.addEventListener("load", () => {
   for (let path of Object.values(window.__config.pathImgBox)) {
     let link = document.createElement("link");
@@ -333,10 +357,12 @@ window.addEventListener("load", () => {
 });
 
 const lsSelectProduct = (val) =>
-  localStorage.setItem("__selected_product", val);
+  setCookie("__selected_product", val);
+// localStorage.setItem("__selected_product", val);
 const lsGetSelectedProduct = () => {
   const products = window.__config.products;
-  let ind = localStorage.getItem("__selected_product");
+  let ind = getCookie("__selected_product");
+  // let ind = localStorage.getItem("__selected_product");
 
   if (ind == null) {
     ind = products[0].id;
@@ -350,9 +376,11 @@ const lsGetSelectedProductInd = () => {
 };
 
 const lsSelectSize = (val) =>
-  localStorage.setItem("__selected_size", val);
+  setCookie("__selected_size", val);
+// localStorage.setItem("__selected_size", val);
 const lsGetSelectedSizeInd = () => {
-  const ind = localStorage.getItem("__selected_size");
+  const ind = getCookie("__selected_size");
+  // const ind = localStorage.getItem("__selected_size");
   let v = parseInt(ind);
 
   if (isNaN(v)) {
@@ -368,13 +396,42 @@ const lsGetSelectedSize = () => {
   return sizes.arr?.[lsGetSelectedSizeInd()];
 };
 
+function clearCookies() {
+  var cookies = document.cookie.split("; ");
+  for (var c = 0; c < cookies.length; c++) {
+    var d = window.location.hostname.split(".");
+    while (d.length > 0) {
+      var cookieBase = encodeURIComponent(cookies[c].split(";")[0].split("=")[0]) + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT; domain=' + d.join('.') + ' ;path=';
+      var p = location.pathname.split('/');
+      document.cookie = cookieBase + '/';
+      while (p.length > 0) {
+        document.cookie = cookieBase + p.join('/');
+        p.pop();
+      };
+      d.shift();
+    }
+  }
+}
+
+const starupCheck = () => {
+  if (getCookie("__firstStart") != null) {
+    return;
+  } else {
+    localStorage.clear();
+    clearCookies();
+    setCookie("__firstStart", true);
+  }
+};
+
 const lsGetProductImages = () => {
   return lsGetSelectedProduct()?.images ?? [];
 };
 
-const lsSetStep = (val) => localStorage.setItem("__step", val);
+const lsSetStep = (val) => setCookie("__step", val);
+// const lsSetStep = (val) => localStorage.setItem("__step", val);
 const lsGetStep = () => {
-  const step = localStorage.getItem("__step", val);
+  const step = getCookie("__step", val);
+  // const step = localStorage.getItem("__step", val);
 
   console.log(step);
 
